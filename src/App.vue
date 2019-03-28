@@ -3,12 +3,19 @@
     <div id="bg">
       <img alt="background" src="./assets/background.png">
     </div>
+    <div id="loginlogout">
+      <span id="login">로그인</span>
+      <span id="logout">로그아웃</span>
+    </div>
     <img alt="logo" src="./assets/logo2.png">
     <HelloWorld msg="오픈클래스"/>
     <div id="code">
-      <input combobox type="number" placeholder="방코드" autocomplete="off" role="combobox" />
+      <span id="enter">
+        <input combobox type="number" placeholder="방코드" autocomplete="off" role="combobox" />
+        <button class="btn btn-primary">입장</button>
+      </span>
     </div>
-    <button class="btn btn-primary">입장</button>
+    
     <router-view></router-view>
   </div>
 </template>
@@ -53,11 +60,20 @@ export default {
   min-width: 50%;
   min-height: 50%;
 }
+#loginlogout {
+  text-align: right;
+}
+#login {
+  margin-right: 5%;
+}
 #code {
   width: 100%;
   height: 60px;
   background-color: white;
   border-radius: 30px;
   padding: 15px 10px 15px 20px;
+}
+#enter button {
+  margin-left: 2%;
 }
 </style>
