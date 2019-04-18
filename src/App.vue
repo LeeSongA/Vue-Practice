@@ -8,14 +8,17 @@
       <span id="logout">로그아웃</span>
     </div>
     <img alt="logo" src="./assets/logo2.png">
-    <HelloWorld msg="오픈클래스"/>
+    <div id="openclass">
+      <h1>오픈클래스</h1>
+    </div>
     <div id="code">
       <span id="enter">
         <input combobox type="number" placeholder="방코드" autocomplete="off" role="combobox" />
         <button class="btn btn-primary">입장</button>
       </span>
     </div>
-    
+    <HelloWorld/>
+     
     <router-view></router-view>
   </div>
 </template>
@@ -65,6 +68,9 @@ export default {
 }
 #login {
   margin-right: 5%;
+}
+#openclass h1 {
+  margin-top: 5%
 }
 #code {
   width: 100%;
