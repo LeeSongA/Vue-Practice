@@ -17,19 +17,18 @@
         <button class="btn btn-primary">입장</button>
       </span>
     </div>
-    <HelloWorld/>
-     
+    <ClassList/>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ClassList from './components/ClassList.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    ClassList
   }
 }
 </script>
