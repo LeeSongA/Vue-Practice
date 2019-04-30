@@ -1,32 +1,45 @@
 <template>
-  <div id="app">
-    <div id="bg">
-      <img alt="background" src="./assets/background.png">
-    </div>
-    <div id="loginlogout">
-      <span id="login">로그인</span>
-      <span id="logout">로그아웃</span>
-    </div>
-    <img alt="logo" src="./assets/logo2.png">
-    <div id="openclass">
-      <h1>오픈클래스</h1>
-    </div>
-    <div id="code">
-      <span id="enter">
-        <input combobox type="number" placeholder="방코드" autocomplete="off" role="combobox" />
-        <button class="btn btn-primary">입장</button>
+  <v-app>
+    <v-toolbar app>
+      <v-toolbar-title class="headline text-uppercase">
+        <span>OpenClass</span>
+        <span class="font-weight-light"> username </span>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn
+        flat
+        href="https://github.com/sweetcapston"
+        target="_blank"
+      >
+        <span class="mr-2">logout</span>
+      </v-btn>
+    </v-toolbar>
+
+    <v-content>
+      <span>
+        <input v-model="classCode" placeholder="클래스코드">
+        <v-btn dark @click="test">입장하기</v-btn>
+        <v-if >
+          <v-btn dark @click="createClass">클래스 생성하기</v-btn>
+        </v-if>
       </span>
-    </div>
-    <ClassList/>
-    <router-view></router-view>
-  </div>
+    
+      <v-sheet
+        class="d-flex"
+      >
+        <ClassList :classcode="'1234'" :classname="'SW캡스톤디자인'" :professorname="'윤대균교수님'" :classtime="'월F목F'" id='Class1'/>
+        <ClassList :classcode="'5678'" :classname="'인공지능'" :professorname="'김민구교수님'" :classtime="'월B목B'" id='Class2'/>
+        <ClassList :classcode="'1111'" :classname="'웹시설'" :professorname="'A교수님'" :classtime="'수D금D'" id='Class3'/>
+        <ClassList :classcode="'6789'" :classname="'임베디드'" :professorname="'B교수님'" :classtime="'월C수E'" id='Class4'/>
+      </v-sheet>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-import ClassList from './components/ClassList.vue'
-
+import ClassList from './components/ClassList'
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     ClassList
   }
@@ -34,51 +47,6 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-#app img {
-  margin-top: 10%;
-}
-#bg {
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-}
-#bg img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  min-width: 50%;
-  min-height: 50%;
-}
-#loginlogout {
-  text-align: right;
-}
-#login {
-  margin-right: 5%;
-}
-#openclass h1 {
-  margin-top: 5%
-}
-#code {
-  width: 100%;
-  height: 60px;
-  background-color: white;
-  border-radius: 30px;
-  padding: 15px 10px 15px 20px;
-}
-#enter button {
-  margin-left: 2%;
-}
+
 </style>
+
